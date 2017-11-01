@@ -45,19 +45,19 @@ GameStateEditor::GameStateEditor(Game* game)
     tile_outline_view = false;
     
         sf::IntRect irect;
-        getBoardTile({400, 600}, irect);
+        game_board.getBoardTile({400, 600}, irect);
         game->tile_display->newTile('z', irect.left, irect.top);
 
-        getBoardTile({600, 800}, irect);
+        game_board.getBoardTile({600, 800}, irect);
         game->tile_display->newTile(' ', irect.left, irect.top);
     
-        getBoardTile({1100, 300}, irect);
+        game_board.getBoardTile({1100, 300}, irect);
         game->tile_display->newTile('m', irect.left, irect.top);
     
-        getBoardTile({500, 500}, irect);
+        game_board.getBoardTile({500, 500}, irect);
         game->tile_display->newTile('o', irect.left, irect.top);
     
-        getBoardTile({1500, 1500}, irect);
+        game_board.getBoardTile({1500, 1500}, irect);
         game->tile_display->newTile('p', irect.left, irect.top);
 }
 
@@ -65,6 +65,7 @@ void GameStateEditor::draw(const float dt)
 {
     this->game->window.clear(sf::Color::Black);
     this->game->window.draw(this->game->background);
+    this->game->window.draw(this->game->dock);
     game->tile_display->display_tiles(this->game->window);
     
     if (tile_outline_view)
@@ -76,7 +77,6 @@ void GameStateEditor::draw(const float dt)
         _mouse.setString(s);
         game->window.draw(_mouse);
     }
-    
     return;
 }
 
@@ -105,7 +105,8 @@ void GameStateEditor::handleInput()
             case sf::Event::MouseButtonPressed:
             {
                 if (event.mouseButton.button == sf::Mouse::Left && is_being_dragged == nullptr) {
-                    for (sf::Sprite* s : game->tile_display->visible_tiles) {
+                    for (TileDisplay::Tile t : game->tile_display->visible_tiles) {
+                        sf::Sprite* s = t.sprite;
                         if (s->getGlobalBounds().contains(mouse_position.x, mouse_position.y)) {
                             is_being_dragged = s;
                             is_being_dragged->setScale(.4, .4);
@@ -121,7 +122,7 @@ void GameStateEditor::handleInput()
         if (is_being_dragged != nullptr) {
             
             sf::IntRect highlight_tile;
-            getBoardTile(mouse_position, highlight_tile);
+            game_board.getBoardTile(mouse_position, highlight_tile);
             
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
                 is_being_dragged->setPosition(mouse_position.x - OFFSET.x, mouse_position.y - OFFSET.y);
@@ -141,20 +142,6 @@ void GameStateEditor::handleInput()
     return;
 }
 
-void GameStateEditor::getBoardTile(const sf::Vector2i& mouse_position, sf::IntRect& rect)
-{
-    double x = mouse_position.x, y = mouse_position.y;
-    
-    if (x < 0)
-        x = 0;
-    if (y < 0)
-        y = 0;
-    
-    rect.left = (int) (x / TILE_BOX_WIDTH) * TILE_BOX_WIDTH + TILE_BOX_INDENT + (TILE_BOX_WIDTH - TILE_HEIGHT) / 2;
-    rect.top = (int)(y / TILE_BOX_HEIGHT) * TILE_BOX_HEIGHT + TILE_BOX_INDENT + (TILE_BOX_WIDTH - TILE_WIDTH) / 2;
-    rect.height = (int) TILE_BOX_HEIGHT;
-    rect.width = (int) TILE_BOX_WIDTH;
-    
-}
+
 
 

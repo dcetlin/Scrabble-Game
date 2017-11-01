@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1130FD731FA8EFD60043C231 /* scrabble-tile-dock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */; };
+		1130FD761FA8F9AA0043C231 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1130FD741FA8F9AA0043C231 /* board.cpp */; };
+		1130FD791FA907C60043C231 /* scrabble-tile-dock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */; };
 		117E66801F58F21F0006A911 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 117E667F1F58F21F0006A911 /* ResourcePath.mm */; };
 		117E66831F58F21F0006A911 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66821F58F21F0006A911 /* main.cpp */; };
 		117E66881F58F21F0006A911 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 117E66871F58F21F0006A911 /* nice_music.ogg */; };
@@ -25,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock.png"; path = "../../scrabble-tile-dock.png"; sourceTree = "<group>"; };
+		1130FD741FA8F9AA0043C231 /* board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
+		1130FD751FA8F9AA0043C231 /* board.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = board.hpp; sourceTree = "<group>"; };
+		1130FD771FA8FF1B0043C231 /* pixel_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pixel_data.h; sourceTree = "<group>"; };
+		1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock2.png"; path = "../../scrabble-tile-dock2.png"; sourceTree = "<group>"; };
 		117E667A1F58F21F0006A911 /* Scrabble Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scrabble Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E667E1F58F21F0006A911 /* Scrabble Game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scrabble Game-Info.plist"; sourceTree = "<group>"; };
 		117E667F1F58F21F0006A911 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -100,7 +108,10 @@
 				117E66A91F5B0E020006A911 /* texture_manager.h */,
 				117E66A31F5B0AF10006A911 /* game_state_start.h */,
 				117E66A51F5B0BDB0006A911 /* game_state_editor.cpp */,
+				1130FD741FA8F9AA0043C231 /* board.cpp */,
+				1130FD751FA8F9AA0043C231 /* board.hpp */,
 				117E66A61F5B0BDB0006A911 /* game_state_editor.h */,
+				1130FD771FA8FF1B0043C231 /* pixel_data.h */,
 				117E66841F58F21F0006A911 /* Resources */,
 				117E667D1F58F21F0006A911 /* Supporting Files */,
 			);
@@ -118,8 +129,10 @@
 		117E66841F58F21F0006A911 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */,
 				11A684041F9FBFF800D2B39E /* Scrabble_Letters.jpg */,
 				11A684061F9FC00500D2B39E /* words.txt */,
+				1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */,
 				11A684081F9FC00F00D2B39E /* words(reduced).txt */,
 				11A6840A1F9FC01C00D2B39E /* scrabble-board.jpg */,
 				117E66871F58F21F0006A911 /* nice_music.ogg */,
@@ -189,6 +202,8 @@
 				11A684091F9FC00F00D2B39E /* words(reduced).txt in Resources */,
 				11A684071F9FC00500D2B39E /* words.txt in Resources */,
 				117E668A1F58F21F0006A911 /* sansation.ttf in Resources */,
+				1130FD791FA907C60043C231 /* scrabble-tile-dock2.png in Resources */,
+				1130FD731FA8EFD60043C231 /* scrabble-tile-dock.png in Resources */,
 				11A684051F9FBFF800D2B39E /* Scrabble_Letters.jpg in Resources */,
 				11A6840B1F9FC01C00D2B39E /* scrabble-board.jpg in Resources */,
 				117E66881F58F21F0006A911 /* nice_music.ogg in Resources */,
@@ -224,6 +239,7 @@
 				11A683FF1F9FBF9400D2B39E /* gaddog.cpp in Sources */,
 				117E66A71F5B0BDB0006A911 /* game_state_editor.cpp in Sources */,
 				117E66A11F5AFAEE0006A911 /* game.cpp in Sources */,
+				1130FD761FA8F9AA0043C231 /* board.cpp in Sources */,
 				117E66801F58F21F0006A911 /* ResourcePath.mm in Sources */,
 				117E66AA1F5B0E020006A911 /* texture_manager.cpp in Sources */,
 				117E66B11F5B6CBD0006A911 /* tile_display.cpp in Sources */,

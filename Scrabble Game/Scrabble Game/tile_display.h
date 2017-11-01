@@ -17,18 +17,24 @@ class TileDisplay {
     const char SPACE = ' ';
     
 public:
+    struct Tile {
+        char ch;
+        sf::Sprite* sprite;
+        
+        Tile(char c, sf::Sprite*s) : ch(c), sprite(s) {};
+    };
+    
     TileDisplay(sf::Texture t) : tileTexture(t){};
     ~TileDisplay();
     void newTile(char c, int x, int y);
     void display_tiles(sf::RenderWindow&);
     void move_to_last(sf::Sprite*);
-    std::vector<sf::Sprite*> visible_tiles;
+    std::vector<Tile> visible_tiles;
+    
     
 private:
     sf::Texture tileTexture;
-    
     void getRect(char c, sf::IntRect&);
-    
 };
 
 #endif

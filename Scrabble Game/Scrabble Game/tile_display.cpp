@@ -11,6 +11,7 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
+#include <stdio.h>
 
 void TileDisplay::getRect(char c, sf::IntRect& rect)
 {
@@ -33,12 +34,16 @@ void TileDisplay::newTile(char c, int x, int y)
     sf::Sprite* s = new sf::Sprite(tileTexture, rect);
     s->setPosition(x, y);
     s->scale(.2422, .2437);
-    visible_tiles.push_back(s);
+    
+    Tile t(c, s);
+    visible_tiles.push_back(t);
 }
 
 void TileDisplay::display_tiles(sf::RenderWindow& window)
 {
-    for (sf::Sprite* s: visible_tiles) {
+    for (Tile tile: visible_tiles) {
+        printf("Displaying %c\n", tile.ch);
+        sf::Sprite* s = tile.sprite;
         if (s != nullptr)
             window.draw(*s);
     }
@@ -47,9 +52,9 @@ void TileDisplay::display_tiles(sf::RenderWindow& window)
 
 TileDisplay::~TileDisplay()
 {
-    for (std::vector<sf::Sprite*>::iterator it = visible_tiles.begin(); it != visible_tiles.end() - 1; it++) {
-        if (*it != nullptr) {
-            delete *it;
+    for (std::vector<Tile>::iterator it = visible_tiles.begin(); it != visible_tiles.end() - 1; it++) {
+        if ((*it).sprite != nullptr) {
+            delete (*it).sprite;
         }
     }
 }
@@ -58,7 +63,7 @@ void TileDisplay::move_to_last(sf::Sprite* s)
 {
     size_t curr = 0;
     for (curr = 0; curr < visible_tiles.size(); curr++) {
-        if (visible_tiles[curr] == s)
+        if (visible_tiles[curr].sprite == s)
             break;
     }
     std::iter_swap(visible_tiles.end() - 1, visible_tiles.begin() + curr);

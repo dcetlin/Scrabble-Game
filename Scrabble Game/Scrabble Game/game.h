@@ -24,6 +24,7 @@ class Game {
     sf::RenderWindow window;
     TextureManager texmgr;
     sf::Sprite background;
+    sf::Sprite dock;
     TileDisplay* tile_display;
     
     void pushState(GameState* state);

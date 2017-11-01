@@ -19,9 +19,13 @@ Game::Game()
 {
     this->loadTextures();
     
-    this->window.create(sf::VideoMode(1141, 1259 + 125), "Scrabble Game", sf::Style::Titlebar | sf::Style::Close);
+    this->window.create(sf::VideoMode(1141, 1259 + 125 + 40), "Scrabble Game", sf::Style::Titlebar | sf::Style::Close);
     this->window.setFramerateLimit(60);
     this->background.setTexture(this->texmgr.getRef("background"));
+    this->dock.setTexture(this->texmgr.getRef("dock"));
+    this->dock.setOrigin(240, 47);
+    this->dock.setPosition(19 + 74.25 * 3, 1220);
+    this->dock.scale(.48, .48);
     tile_display = new TileDisplay(this->texmgr.getRef("tile_tex"));
     
     sf::Image icon;
@@ -35,6 +39,7 @@ void Game::loadTextures()
 {
     texmgr.loadTexture("background", resourcePath() + "scrabble-board.jpg");
     texmgr.loadTexture("tile_tex", resourcePath() + "Scrabble_Letters.jpg");
+    texmgr.loadTexture("dock", resourcePath() + "scrabble-tile-dock2.png");
     
 }
 
@@ -54,7 +59,7 @@ void Game::pushState(GameState* state)
 
 void Game::popState()
 {
-    delete this->states.top();
+    //delete this->states.top();
     this->states.pop();
 }
 
