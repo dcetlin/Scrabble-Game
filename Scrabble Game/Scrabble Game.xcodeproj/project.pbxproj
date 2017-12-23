@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1130FD731FA8EFD60043C231 /* scrabble-tile-dock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */; };
+		110924531FAA7B1C008DF428 /* gaddog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110924521FAA7B1C008DF428 /* gaddog.cpp */; };
+		110924571FAA7B35008DF428 /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110924551FAA7B35008DF428 /* dictionary.cpp */; };
+		1109245D1FAA7B69008DF428 /* Scrabble_Letters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109245C1FAA7B69008DF428 /* Scrabble_Letters.jpg */; };
+		110924601FAA7B71008DF428 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1109245E1FAA7B71008DF428 /* words.txt */; };
+		110924611FAA7B71008DF428 /* words(reduced).txt in Resources */ = {isa = PBXBuildFile; fileRef = 1109245F1FAA7B71008DF428 /* words(reduced).txt */; };
+		110924631FAA7B84008DF428 /* scrabble-board.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 110924621FAA7B84008DF428 /* scrabble-board.jpg */; };
 		1130FD761FA8F9AA0043C231 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1130FD741FA8F9AA0043C231 /* board.cpp */; };
-		1130FD791FA907C60043C231 /* scrabble-tile-dock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */; };
 		117E66801F58F21F0006A911 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 117E667F1F58F21F0006A911 /* ResourcePath.mm */; };
 		117E66831F58F21F0006A911 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66821F58F21F0006A911 /* main.cpp */; };
 		117E66881F58F21F0006A911 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 117E66871F58F21F0006A911 /* nice_music.ogg */; };
@@ -19,20 +23,21 @@
 		117E66A71F5B0BDB0006A911 /* game_state_editor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66A51F5B0BDB0006A911 /* game_state_editor.cpp */; };
 		117E66AA1F5B0E020006A911 /* texture_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66A81F5B0E020006A911 /* texture_manager.cpp */; };
 		117E66B11F5B6CBD0006A911 /* tile_display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66AF1F5B6CBD0006A911 /* tile_display.cpp */; };
-		11A683FF1F9FBF9400D2B39E /* gaddog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11A683FE1F9FBF9300D2B39E /* gaddog.cpp */; };
-		11A684021F9FBFB600D2B39E /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11A684011F9FBFB600D2B39E /* dictionary.cpp */; };
-		11A684051F9FBFF800D2B39E /* Scrabble_Letters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11A684041F9FBFF800D2B39E /* Scrabble_Letters.jpg */; };
-		11A684071F9FC00500D2B39E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11A684061F9FC00500D2B39E /* words.txt */; };
-		11A684091F9FC00F00D2B39E /* words(reduced).txt in Resources */ = {isa = PBXBuildFile; fileRef = 11A684081F9FC00F00D2B39E /* words(reduced).txt */; };
-		11A6840B1F9FC01C00D2B39E /* scrabble-board.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11A6840A1F9FC01C00D2B39E /* scrabble-board.jpg */; };
+		11FB10BA1FEEF9A300332A62 /* scrabble-tile-dock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock.png"; path = "../../scrabble-tile-dock.png"; sourceTree = "<group>"; };
+		110924521FAA7B1C008DF428 /* gaddog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gaddog.cpp; sourceTree = "<group>"; };
+		110924541FAA7B27008DF428 /* gaddog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gaddog.h; sourceTree = "<group>"; };
+		110924551FAA7B35008DF428 /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dictionary.cpp; sourceTree = "<group>"; };
+		110924561FAA7B35008DF428 /* dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary.h; sourceTree = "<group>"; };
+		1109245C1FAA7B69008DF428 /* Scrabble_Letters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Scrabble_Letters.jpg; sourceTree = "<group>"; };
+		1109245E1FAA7B71008DF428 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		1109245F1FAA7B71008DF428 /* words(reduced).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "words(reduced).txt"; sourceTree = "<group>"; };
+		110924621FAA7B84008DF428 /* scrabble-board.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "scrabble-board.jpg"; sourceTree = "<group>"; };
 		1130FD741FA8F9AA0043C231 /* board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
 		1130FD751FA8F9AA0043C231 /* board.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = board.hpp; sourceTree = "<group>"; };
 		1130FD771FA8FF1B0043C231 /* pixel_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pixel_data.h; sourceTree = "<group>"; };
-		1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock2.png"; path = "../../scrabble-tile-dock2.png"; sourceTree = "<group>"; };
 		117E667A1F58F21F0006A911 /* Scrabble Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scrabble Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E667E1F58F21F0006A911 /* Scrabble Game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scrabble Game-Info.plist"; sourceTree = "<group>"; };
 		117E667F1F58F21F0006A911 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -51,14 +56,7 @@
 		117E66A91F5B0E020006A911 /* texture_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture_manager.h; sourceTree = "<group>"; };
 		117E66AF1F5B6CBD0006A911 /* tile_display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile_display.cpp; sourceTree = "<group>"; };
 		117E66B01F5B6CBD0006A911 /* tile_display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile_display.h; sourceTree = "<group>"; };
-		11A683FE1F9FBF9300D2B39E /* gaddog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gaddog.cpp; path = ../../Old_Work_And_Directories/Scrabble2/gaddog.cpp; sourceTree = "<group>"; };
-		11A684001F9FBFA700D2B39E /* gaddog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gaddog.h; path = ../../Old_Work_And_Directories/Scrabble2/gaddog.h; sourceTree = "<group>"; };
-		11A684011F9FBFB600D2B39E /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dictionary.cpp; path = ../../Old_Work_And_Directories/Scrabble2/dictionary.cpp; sourceTree = "<group>"; };
-		11A684031F9FBFC400D2B39E /* dictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = dictionary.h; path = ../../Old_Work_And_Directories/Scrabble2/dictionary.h; sourceTree = "<group>"; };
-		11A684041F9FBFF800D2B39E /* Scrabble_Letters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Scrabble_Letters.jpg; path = "../../Important images/Scrabble_Letters.jpg"; sourceTree = "<group>"; };
-		11A684061F9FC00500D2B39E /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = words.txt; path = ../../Old_Work_And_Directories/Scrabble2/words.txt; sourceTree = "<group>"; };
-		11A684081F9FC00F00D2B39E /* words(reduced).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "words(reduced).txt"; path = "../../Old_Work_And_Directories/Scrabble2/words(reduced).txt"; sourceTree = "<group>"; };
-		11A6840A1F9FC01C00D2B39E /* scrabble-board.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "scrabble-board.jpg"; path = "../../Important images/scrabble-board.jpg"; sourceTree = "<group>"; };
+		11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock2.png"; path = "../../../Important images/scrabble-tile-dock2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +92,10 @@
 				117E667F1F58F21F0006A911 /* ResourcePath.mm */,
 				117E66811F58F21F0006A911 /* ResourcePath.hpp */,
 				117E66821F58F21F0006A911 /* main.cpp */,
-				11A683FE1F9FBF9300D2B39E /* gaddog.cpp */,
-				11A684001F9FBFA700D2B39E /* gaddog.h */,
-				11A684011F9FBFB600D2B39E /* dictionary.cpp */,
-				11A684031F9FBFC400D2B39E /* dictionary.h */,
+				110924521FAA7B1C008DF428 /* gaddog.cpp */,
+				110924551FAA7B35008DF428 /* dictionary.cpp */,
+				110924561FAA7B35008DF428 /* dictionary.h */,
+				110924541FAA7B27008DF428 /* gaddog.h */,
 				117E669E1F5AF9440006A911 /* game_state.h */,
 				117E669F1F5AF9F10006A911 /* game.h */,
 				117E66A01F5AFAEE0006A911 /* game.cpp */,
@@ -129,12 +127,11 @@
 		117E66841F58F21F0006A911 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1130FD781FA907C60043C231 /* scrabble-tile-dock2.png */,
-				11A684041F9FBFF800D2B39E /* Scrabble_Letters.jpg */,
-				11A684061F9FC00500D2B39E /* words.txt */,
-				1130FD721FA8EFD60043C231 /* scrabble-tile-dock.png */,
-				11A684081F9FC00F00D2B39E /* words(reduced).txt */,
-				11A6840A1F9FC01C00D2B39E /* scrabble-board.jpg */,
+				11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */,
+				1109245C1FAA7B69008DF428 /* Scrabble_Letters.jpg */,
+				1109245E1FAA7B71008DF428 /* words.txt */,
+				1109245F1FAA7B71008DF428 /* words(reduced).txt */,
+				110924621FAA7B84008DF428 /* scrabble-board.jpg */,
 				117E66871F58F21F0006A911 /* nice_music.ogg */,
 				117E66891F58F21F0006A911 /* sansation.ttf */,
 			);
@@ -199,13 +196,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11A684091F9FC00F00D2B39E /* words(reduced).txt in Resources */,
-				11A684071F9FC00500D2B39E /* words.txt in Resources */,
+				11FB10BA1FEEF9A300332A62 /* scrabble-tile-dock2.png in Resources */,
+				1109245D1FAA7B69008DF428 /* Scrabble_Letters.jpg in Resources */,
+				110924611FAA7B71008DF428 /* words(reduced).txt in Resources */,
 				117E668A1F58F21F0006A911 /* sansation.ttf in Resources */,
-				1130FD791FA907C60043C231 /* scrabble-tile-dock2.png in Resources */,
-				1130FD731FA8EFD60043C231 /* scrabble-tile-dock.png in Resources */,
-				11A684051F9FBFF800D2B39E /* Scrabble_Letters.jpg in Resources */,
-				11A6840B1F9FC01C00D2B39E /* scrabble-board.jpg in Resources */,
+				110924601FAA7B71008DF428 /* words.txt in Resources */,
+				110924631FAA7B84008DF428 /* scrabble-board.jpg in Resources */,
 				117E66881F58F21F0006A911 /* nice_music.ogg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,13 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110924531FAA7B1C008DF428 /* gaddog.cpp in Sources */,
 				117E66A41F5B0AF10006A911 /* game_state_start.cpp in Sources */,
 				117E66831F58F21F0006A911 /* main.cpp in Sources */,
-				11A684021F9FBFB600D2B39E /* dictionary.cpp in Sources */,
-				11A683FF1F9FBF9400D2B39E /* gaddog.cpp in Sources */,
 				117E66A71F5B0BDB0006A911 /* game_state_editor.cpp in Sources */,
 				117E66A11F5AFAEE0006A911 /* game.cpp in Sources */,
 				1130FD761FA8F9AA0043C231 /* board.cpp in Sources */,
+				110924571FAA7B35008DF428 /* dictionary.cpp in Sources */,
 				117E66801F58F21F0006A911 /* ResourcePath.mm in Sources */,
 				117E66AA1F5B0E020006A911 /* texture_manager.cpp in Sources */,
 				117E66B11F5B6CBD0006A911 /* tile_display.cpp in Sources */,

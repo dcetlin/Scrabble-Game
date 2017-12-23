@@ -7,6 +7,7 @@
 //
 
 #include "board.hpp"
+#include <stdio.h>
 
 Board::Board()
 {
@@ -17,6 +18,40 @@ Board::Board()
     }
     for (int k = 0; k < 7; k++)
         tile_dock[k] = EMPTY;
+}
+
+void Board::getBoardTile(const sf::Vector2i& mouse_position, sf::IntRect& rect, sf::Vector2<int>& board_pos, int& rack_pos, int& x_pos, int& y_pos)
+{
+    double x = mouse_position.x, y = mouse_position.y;
+    
+    if (x < 0)
+        x = 0;
+    else if (x > 14 * TILE_BOX_WIDTH + TILE_BOX_INDENT)
+        x = 14 * TILE_BOX_WIDTH + TILE_BOX_INDENT;
+    if (y < 0)
+        y = 0;
+    if (y > 16 * TILE_BOX_WIDTH + TILE_BOX_INDENT) {
+        if ((x > 4 * TILE_BOX_WIDTH + TILE_BOX_INDENT && x < 11 * TILE_BOX_WIDTH + TILE_BOX_INDENT)
+            && (y > 1220 + 70 && y < 1220 + 70 + TILE_BOX_HEIGHT)) {
+            rect.left = (int) ((x - TILE_BOX_INDENT) / TILE_BOX_WIDTH) * TILE_BOX_WIDTH + TILE_BOX_INDENT + (TILE_BOX_WIDTH - TILE_WIDTH) / 2;
+            rect.top = 1220 + TILE_BOX_INDENT + 50 + (TILE_BOX_WIDTH - TILE_WIDTH) / 2;
+            rect.height = (int) TILE_BOX_HEIGHT;
+            rect.width = (int) TILE_BOX_WIDTH;
+            rack_pos = (rect.left - (4 * TILE_BOX_WIDTH + TILE_BOX_INDENT)) / TILE_BOX_WIDTH;
+            printf("rack_pos: %d\n, grid: (%d, %d)\n", rack_pos, x_pos, y_pos);
+            return;
+        }
+        else
+            y = 14 * TILE_BOX_HEIGHT + TILE_BOX_INDENT;
+    }
+    
+    rect.left = (int) ((x - TILE_BOX_INDENT) / TILE_BOX_WIDTH) * TILE_BOX_WIDTH + TILE_BOX_INDENT + (TILE_BOX_WIDTH - TILE_HEIGHT) / 2;
+    rect.top = (int)((y - TILE_BOX_INDENT) / TILE_BOX_HEIGHT) * TILE_BOX_HEIGHT + TILE_BOX_INDENT + (TILE_BOX_WIDTH - TILE_WIDTH) / 2;
+    rect.height = (int) TILE_BOX_HEIGHT;
+    rect.width = (int) TILE_BOX_WIDTH;
+    
+    x_pos = (rect.left) / TILE_BOX_WIDTH;
+    y_pos = (rect.top - TILE_BOX_INDENT) / TILE_BOX_HEIGHT;
 }
 
 void Board::getBoardTile(const sf::Vector2i& mouse_position, sf::IntRect& rect)

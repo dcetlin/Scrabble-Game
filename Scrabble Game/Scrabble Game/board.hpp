@@ -26,8 +26,8 @@ private:
     
 public:
     Board();
+    void getBoardTile(const sf::Vector2i& mouse_position, sf::IntRect& rect, sf::Vector2<int>& board_pos, int& rack_pos, int& x_pos, int& y_pos);
     void getBoardTile(const sf::Vector2i& mouse_position, sf::IntRect& rect);
-    
     
 };
 

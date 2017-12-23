@@ -12,6 +12,7 @@
 #include "game_state.h"
 #include "pixel_data.h"
 #include "board.hpp"
+#include "tile_display.h"
 
 const sf::Vector2i OFFSET(36, 40);
 

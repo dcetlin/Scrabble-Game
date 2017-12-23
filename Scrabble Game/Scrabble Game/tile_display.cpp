@@ -42,7 +42,6 @@ void TileDisplay::newTile(char c, int x, int y)
 void TileDisplay::display_tiles(sf::RenderWindow& window)
 {
     for (Tile tile: visible_tiles) {
-        printf("Displaying %c\n", tile.ch);
         sf::Sprite* s = tile.sprite;
         if (s != nullptr)
             window.draw(*s);

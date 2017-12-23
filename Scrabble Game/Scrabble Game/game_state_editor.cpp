@@ -122,7 +122,13 @@ void GameStateEditor::handleInput()
         if (is_being_dragged != nullptr) {
             
             sf::IntRect highlight_tile;
-            game_board.getBoardTile(mouse_position, highlight_tile);
+            sf::Vector2<int> board_pos = {-1, -1};
+            int rack_pos = -1;
+            int x_pos = -1;
+            int y_pos = -1;
+            game_board.getBoardTile(mouse_position, highlight_tile, board_pos, rack_pos, x_pos, y_pos);
+            printf("rack_pos: %d\n, grid: (%d, %d)\n", rack_pos, x_pos, y_pos);
+
             
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
                 is_being_dragged->setPosition(mouse_position.x - OFFSET.x, mouse_position.y - OFFSET.y);
@@ -133,6 +139,8 @@ void GameStateEditor::handleInput()
             } else {
                 is_being_dragged->setScale(.2422, .2437);
                 is_being_dragged->setPosition(highlight_tile.left, highlight_tile.top);
+                
+                
                 is_being_dragged = nullptr;
                 tile_outline_view = false;
             }
