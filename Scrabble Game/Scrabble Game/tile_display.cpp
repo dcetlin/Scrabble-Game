@@ -35,14 +35,14 @@ void TileDisplay::newTile(char c, int x, int y)
     s->setPosition(x, y);
     s->scale(.2422, .2437);
     
-    Tile t(c, s);
+    Tile* t = new Tile(c, s);
     visible_tiles.push_back(t);
 }
 
 void TileDisplay::display_tiles(sf::RenderWindow& window)
 {
-    for (Tile tile: visible_tiles) {
-        sf::Sprite* s = tile.sprite;
+    for (Tile* tile: visible_tiles) {
+        sf::Sprite* s = tile->sprite;
         if (s != nullptr)
             window.draw(*s);
     }
@@ -51,9 +51,12 @@ void TileDisplay::display_tiles(sf::RenderWindow& window)
 
 TileDisplay::~TileDisplay()
 {
-    for (std::vector<Tile>::iterator it = visible_tiles.begin(); it != visible_tiles.end() - 1; it++) {
-        if ((*it).sprite != nullptr) {
-            delete (*it).sprite;
+    for (std::vector<Tile*>::iterator it = visible_tiles.begin(); it != visible_tiles.end() - 1; it++) {
+        if (*it != nullptr) {
+            if ((*it)->sprite != nullptr) {
+                delete (*it)->sprite;
+            }
+            delete (*it);
         }
     }
 }
@@ -62,7 +65,7 @@ void TileDisplay::move_to_last(sf::Sprite* s)
 {
     size_t curr = 0;
     for (curr = 0; curr < visible_tiles.size(); curr++) {
-        if (visible_tiles[curr].sprite == s)
+        if (visible_tiles[curr]->sprite == s)
             break;
     }
     std::iter_swap(visible_tiles.end() - 1, visible_tiles.begin() + curr);

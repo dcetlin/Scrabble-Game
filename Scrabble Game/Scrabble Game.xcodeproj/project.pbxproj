@@ -24,6 +24,10 @@
 		117E66AA1F5B0E020006A911 /* texture_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66A81F5B0E020006A911 /* texture_manager.cpp */; };
 		117E66B11F5B6CBD0006A911 /* tile_display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117E66AF1F5B6CBD0006A911 /* tile_display.cpp */; };
 		11FB10BA1FEEF9A300332A62 /* scrabble-tile-dock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */; };
+		11FB10C71FF1B4B300332A62 /* button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11FB10C51FF1B4B300332A62 /* button.cpp */; };
+		11FB10C91FF3089B00332A62 /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11FB10C81FF3089B00332A62 /* arial.ttf */; };
+		11FB10CC1FF312B200332A62 /* Submit-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FB10CA1FF312B200332A62 /* Submit-button.png */; };
+		11FB10CD1FF312B200332A62 /* Submit-button-clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FB10CB1FF312B200332A62 /* Submit-button-clicked.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,11 @@
 		117E66AF1F5B6CBD0006A911 /* tile_display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile_display.cpp; sourceTree = "<group>"; };
 		117E66B01F5B6CBD0006A911 /* tile_display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile_display.h; sourceTree = "<group>"; };
 		11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scrabble-tile-dock2.png"; path = "../../../Important images/scrabble-tile-dock2.png"; sourceTree = "<group>"; };
+		11FB10C51FF1B4B300332A62 /* button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = button.cpp; sourceTree = "<group>"; };
+		11FB10C61FF1B4B300332A62 /* button.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = button.hpp; sourceTree = "<group>"; };
+		11FB10C81FF3089B00332A62 /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
+		11FB10CA1FF312B200332A62 /* Submit-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Submit-button.png"; sourceTree = "<group>"; };
+		11FB10CB1FF312B200332A62 /* Submit-button-clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Submit-button-clicked.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +119,8 @@
 				1130FD751FA8F9AA0043C231 /* board.hpp */,
 				117E66A61F5B0BDB0006A911 /* game_state_editor.h */,
 				1130FD771FA8FF1B0043C231 /* pixel_data.h */,
+				11FB10C51FF1B4B300332A62 /* button.cpp */,
+				11FB10C61FF1B4B300332A62 /* button.hpp */,
 				117E66841F58F21F0006A911 /* Resources */,
 				117E667D1F58F21F0006A911 /* Supporting Files */,
 			);
@@ -127,6 +138,9 @@
 		117E66841F58F21F0006A911 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11FB10CB1FF312B200332A62 /* Submit-button-clicked.png */,
+				11FB10CA1FF312B200332A62 /* Submit-button.png */,
+				11FB10C81FF3089B00332A62 /* arial.ttf */,
 				11FB10B91FEEF9A300332A62 /* scrabble-tile-dock2.png */,
 				1109245C1FAA7B69008DF428 /* Scrabble_Letters.jpg */,
 				1109245E1FAA7B71008DF428 /* words.txt */,
@@ -196,13 +210,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FB10CC1FF312B200332A62 /* Submit-button.png in Resources */,
 				11FB10BA1FEEF9A300332A62 /* scrabble-tile-dock2.png in Resources */,
 				1109245D1FAA7B69008DF428 /* Scrabble_Letters.jpg in Resources */,
 				110924611FAA7B71008DF428 /* words(reduced).txt in Resources */,
 				117E668A1F58F21F0006A911 /* sansation.ttf in Resources */,
+				11FB10C91FF3089B00332A62 /* arial.ttf in Resources */,
 				110924601FAA7B71008DF428 /* words.txt in Resources */,
 				110924631FAA7B84008DF428 /* scrabble-board.jpg in Resources */,
 				117E66881F58F21F0006A911 /* nice_music.ogg in Resources */,
+				11FB10CD1FF312B200332A62 /* Submit-button-clicked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +249,7 @@
 				110924531FAA7B1C008DF428 /* gaddog.cpp in Sources */,
 				117E66A41F5B0AF10006A911 /* game_state_start.cpp in Sources */,
 				117E66831F58F21F0006A911 /* main.cpp in Sources */,
+				11FB10C71FF1B4B300332A62 /* button.cpp in Sources */,
 				117E66A71F5B0BDB0006A911 /* game_state_editor.cpp in Sources */,
 				117E66A11F5AFAEE0006A911 /* game.cpp in Sources */,
 				1130FD761FA8F9AA0043C231 /* board.cpp in Sources */,

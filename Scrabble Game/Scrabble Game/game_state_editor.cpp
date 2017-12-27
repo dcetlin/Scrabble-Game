@@ -13,7 +13,7 @@
 #include <vector>
 #include <iostream>
 
-#define DEBUG false
+#define DEBUG true
 
 GameStateEditor::GameStateEditor(Game* game)
 {
@@ -25,10 +25,14 @@ GameStateEditor::GameStateEditor(Game* game)
     this->guiView.setCenter(pos);
     this->gameView.setCenter(pos);
     
-    if (true) {
+    if (DEBUG) {
         sf::Font font;
         
-        //font.loadFromFile(resourcePath() + "Times.ttf");
+        const std::string filepath = resourcePath() + "arial.ttf";
+        if (!font.loadFromFile(filepath)) {
+            fprintf(stderr, "Unable to load font\n");
+            exit(1);
+        }
         _mouse.setFont(font);
         _mouse.setCharacterSize(200);
         _mouse.setFillColor(sf::Color::Red);
@@ -36,6 +40,7 @@ GameStateEditor::GameStateEditor(Game* game)
     }
     
     is_being_dragged = nullptr;
+    last_position = {0, 0};
     
     tile_outline.setSize(sf::Vector2f(TILE_BOX_WIDTH, TILE_BOX_HEIGHT));
     tile_outline.setOutlineColor(sf::Color::Yellow);
@@ -43,6 +48,7 @@ GameStateEditor::GameStateEditor(Game* game)
     tile_outline.setOutlineThickness(.85);
     
     tile_outline_view = false;
+    button_isclicked = false;
     
         sf::IntRect irect;
         game_board.getBoardTile({400, 600}, irect);
@@ -66,7 +72,9 @@ void GameStateEditor::draw(const float dt)
     this->game->window.clear(sf::Color::Black);
     this->game->window.draw(this->game->background);
     this->game->window.draw(this->game->dock);
+    //this->game->window.draw(this->game->submit_button);
     game->tile_display->display_tiles(this->game->window);
+    game->button->draw_button(this->game->window);
     
     if (tile_outline_view)
         game->window.draw(tile_outline);
@@ -75,7 +83,9 @@ void GameStateEditor::draw(const float dt)
         sf::Vector2i mouse_position = sf::Mouse::getPosition(game->window);
         std::string s = "[" + std::to_string(mouse_position.x) + ":" + std::to_string(mouse_position.y) + "]";
         _mouse.setString(s);
-        game->window.draw(_mouse);
+        //game->window.draw(_mouse);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
+            fprintf(stderr, "%s\n", s.c_str());
     }
     return;
 }
@@ -89,6 +99,7 @@ void GameStateEditor::handleInput()
 {
     sf::Event event;
     sf::Vector2i mouse_position;
+    bool tile_justclicked = false;
     
     while(this->game->window.pollEvent(event))
     {
@@ -105,51 +116,63 @@ void GameStateEditor::handleInput()
             case sf::Event::MouseButtonPressed:
             {
                 if (event.mouseButton.button == sf::Mouse::Left && is_being_dragged == nullptr) {
-                    for (TileDisplay::Tile t : game->tile_display->visible_tiles) {
-                        sf::Sprite* s = t.sprite;
-                        if (s->getGlobalBounds().contains(mouse_position.x, mouse_position.y)) {
-                            is_being_dragged = s;
-                            is_being_dragged->setScale(.4, .4);
-                            game->tile_display->move_to_last(s);
-                            break;
+                    if (game->button->checkInitialClick(mouse_position)) {
+                        button_isclicked = true;
+                    } else {
+                        for (TileDisplay::Tile* t : game->tile_display->visible_tiles) {
+                            sf::Sprite* s = t->sprite;
+                            if (s->getGlobalBounds().contains(mouse_position.x, mouse_position.y)) {
+                                last_position = {(int) s->getPosition().x, (int) s->getPosition().y};
+                                is_being_dragged = t;
+                                is_being_dragged->sprite->setScale(.4, .4);
+                                game->tile_display->move_to_last(s);
+                                tile_justclicked = true;
+                                break;
+                            }
                         }
                     }
-                    
                 }
+                break;
+            }
+            case sf::Event::MouseButtonReleased:
+            {
+                if (button_isclicked) {
+                    button_isclicked = false;
+                    if (game->button->checkReleaseClick(mouse_position)) {
+                        printf("button was pressed\n");
+                    } 
+                }
+                break;
             }
             default: break;
         }
         if (is_being_dragged != nullptr) {
             
             sf::IntRect highlight_tile;
-            sf::Vector2<int> board_pos = {-1, -1};
+            sf::Vector2i board_pos = {-1, -1};
             int rack_pos = -1;
-            int x_pos = -1;
-            int y_pos = -1;
-            game_board.getBoardTile(mouse_position, highlight_tile, board_pos, rack_pos, x_pos, y_pos);
-            printf("rack_pos: %d\n, grid: (%d, %d)\n", rack_pos, x_pos, y_pos);
-
+            game_board.getBoardTile(mouse_position, highlight_tile, board_pos, rack_pos, tile_justclicked);
+            tile_justclicked = false;
             
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-                is_being_dragged->setPosition(mouse_position.x - OFFSET.x, mouse_position.y - OFFSET.y);
+                is_being_dragged->sprite->setPosition(mouse_position.x - OFFSET.x, mouse_position.y - OFFSET.y);
                 
                 tile_outline.setPosition(highlight_tile.left, highlight_tile.top);
                 tile_outline_view = true;
                 
             } else {
-                is_being_dragged->setScale(.2422, .2437);
-                is_being_dragged->setPosition(highlight_tile.left, highlight_tile.top);
-                
+                is_being_dragged->sprite->setScale(.2422, .2437);
+                if (game_board.update_board(board_pos, rack_pos, is_being_dragged->ch)) {
+                    is_being_dragged->sprite->setPosition(highlight_tile.left, highlight_tile.top);
+                } else {
+                    is_being_dragged->sprite->setPosition(last_position.x, last_position.y);
+                }
                 
                 is_being_dragged = nullptr;
                 tile_outline_view = false;
             }
         }
+        //printf("%s\n", (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))? "left ispressed": "left isnotpressed");
     }
-    
     return;
 }
-
-
-
-

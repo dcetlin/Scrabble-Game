@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include "texture_manager.h"
 #include <tile_display.h>
+#include "button.hpp"
 
 
 class GameState;
@@ -25,6 +26,12 @@ class Game {
     TextureManager texmgr;
     sf::Sprite background;
     sf::Sprite dock;
+    
+    sf::Sprite submit_button;
+    sf::Sprite submit_button_clicked;
+    
+    Button* button;
+    
     TileDisplay* tile_display;
     
     void pushState(GameState* state);

@@ -24,9 +24,11 @@ private:
     sf::View guiView;
     sf::Text _mouse;
     
-    sf::Sprite* is_being_dragged;
+    TileDisplay::Tile* is_being_dragged;
+    sf::Vector2i last_position;
     sf::RectangleShape tile_outline;
     bool tile_outline_view;
+    bool button_isclicked;
     
     Board game_board;
     

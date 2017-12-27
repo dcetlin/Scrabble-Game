@@ -29,7 +29,7 @@ public:
     void newTile(char c, int x, int y);
     void display_tiles(sf::RenderWindow&);
     void move_to_last(sf::Sprite*);
-    std::vector<Tile> visible_tiles;
+    std::vector<Tile*> visible_tiles;
     
     
 private:
