@@ -10,10 +10,10 @@ and tested a trie like data structure for implementing an AI that was inspired b
 
 I will be updating this project when I have a change.
 
-Recent updates:
+### Recent updates:
 * Button object that has a clicked sprite and unclicked sprite that functions like a normal button (since the SFML library does not provide such a feature).
 
-TODO:
+### TODO:
 * Implement verification system and method after placing a word on the board.
 * Create system for keeping track of the remaining tiles and randomly chosing and placing the proper amount of tiles into the rack.
 * Update backend handling of tiles that have been placed and verified on previous turns.
