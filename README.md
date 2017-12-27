@@ -1,5 +1,5 @@
-#Scrabble Game with GUI
+# Scrabble Game with GUI
 
-![game screenshot][pics/board-screenshot.png]
+! [game screenshot][pics/board-screenshot.png]
 
-![gif example][pics/LargeGIF.gif]
+! [gif example][pics/LargeGIF.gif]
