@@ -13,6 +13,7 @@
 #include "pixel_data.h"
 #include "board.hpp"
 #include "tile_display.h"
+#include "tile_manager.hpp"
 
 const sf::Vector2i OFFSET(36, 40);
 
@@ -29,8 +30,10 @@ private:
     sf::RectangleShape tile_outline;
     bool tile_outline_view;
     bool button_isclicked;
+    bool isFirstMove;
     
     Board game_board;
+    TileManager* tile_manager;
     
     void getBoardTile(const sf::Vector2i&, sf::IntRect&);
     
@@ -41,6 +44,7 @@ public:
     virtual void handleInput();
     
     GameStateEditor(Game* game);
+    ~GameStateEditor();
 };
 
 #endif

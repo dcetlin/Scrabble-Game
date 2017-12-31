@@ -14,7 +14,7 @@
 
 class TileDisplay {
     
-    const char SPACE = ' ';
+    const char SPACE = '_';
     
 public:
     struct Tile {

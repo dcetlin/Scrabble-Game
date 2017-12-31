@@ -43,14 +43,16 @@ void TileDisplay::display_tiles(sf::RenderWindow& window)
 {
     for (Tile* tile: visible_tiles) {
         sf::Sprite* s = tile->sprite;
-        if (s != nullptr)
+        if (s != nullptr) {
             window.draw(*s);
+        }
     }
     
 }
 
 TileDisplay::~TileDisplay()
-{
+{   if (visible_tiles.size() == 0)
+        return;
     for (std::vector<Tile*>::iterator it = visible_tiles.begin(); it != visible_tiles.end() - 1; it++) {
         if (*it != nullptr) {
             if ((*it)->sprite != nullptr) {

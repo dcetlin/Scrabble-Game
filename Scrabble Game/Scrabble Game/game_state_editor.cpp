@@ -49,22 +49,16 @@ GameStateEditor::GameStateEditor(Game* game)
     
     tile_outline_view = false;
     button_isclicked = false;
+    isFirstMove = true;
     
-        sf::IntRect irect;
-        game_board.getBoardTile({400, 600}, irect);
-        game->tile_display->newTile('z', irect.left, irect.top);
+    tile_manager = new TileManager(&game_board, game->tile_display);
+    
+    tile_manager->fillRack();
+}
 
-        game_board.getBoardTile({600, 800}, irect);
-        game->tile_display->newTile(' ', irect.left, irect.top);
-    
-        game_board.getBoardTile({1100, 300}, irect);
-        game->tile_display->newTile('m', irect.left, irect.top);
-    
-        game_board.getBoardTile({500, 500}, irect);
-        game->tile_display->newTile('o', irect.left, irect.top);
-    
-        game_board.getBoardTile({1500, 1500}, irect);
-        game->tile_display->newTile('p', irect.left, irect.top);
+GameStateEditor::~GameStateEditor()
+{
+    delete tile_manager;
 }
 
 void GameStateEditor::draw(const float dt)
@@ -138,9 +132,17 @@ void GameStateEditor::handleInput()
             {
                 if (button_isclicked) {
                     button_isclicked = false;
-                    if (game->button->checkReleaseClick(mouse_position)) {
-                        printf("button was pressed\n");
-                    } 
+                    if (game->button->checkReleaseClick(mouse_position)) { //On Submit button press
+                        if (isFirstMove) {
+                            if (game_board.validateBoard_FirstMove()) {
+                                tile_manager->fillRack();
+                                isFirstMove = false;
+                            }
+                        } else {
+                            if (game_board.validateBoard())
+                                tile_manager->fillRack();
+                        }
+                    }
                 }
                 break;
             }
@@ -162,7 +164,7 @@ void GameStateEditor::handleInput()
                 
             } else {
                 is_being_dragged->sprite->setScale(.2422, .2437);
-                if (game_board.update_board(board_pos, rack_pos, is_being_dragged->ch)) {
+                if (game_board.update_board(board_pos, rack_pos, is_being_dragged->ch, true, is_being_dragged)) {
                     is_being_dragged->sprite->setPosition(highlight_tile.left, highlight_tile.top);
                 } else {
                     is_being_dragged->sprite->setPosition(last_position.x, last_position.y);
